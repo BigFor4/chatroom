@@ -1,0 +1,8 @@
+server/log/
+server/node_modules/
+server/.env
+client/node_modules/
+client/.env*
+.vscode/launch.json
+server/.cache/
+.docker

@@ -49,7 +49,7 @@ if (
 
 if (window.location.pathname !== '/') {
     const { pathname } = window.location;
-    window.history.pushState({}, 'fiora', '/');
+    window.history.pushState({}, 'chatroom', '/');
     if (pathname.startsWith('/invite/group/')) {
         const groupId = pathname.replace(`/invite/group/`, '');
         window.sessionStorage.setItem('inviteGroupId', groupId);

@@ -48,11 +48,6 @@ interface MessageState {
     showButtonList: boolean;
 }
 
-/**
- * Message组件用hooks实现有些问题
- * 功能上要求Message组件渲染后触发滚动, 实测中发现在useEffect中触发滚动会比在componentDidMount中晚
- * 具体表现就是会先看到历史消息, 然后一闪而过再滚动到合适的位置
- */
 @pureRender
 class Message extends Component<MessageProps, MessageState> {
     $container = createRef<HTMLDivElement>();
@@ -89,9 +84,6 @@ class Message extends Component<MessageProps, MessageState> {
         }
     };
 
-    /**
-     * 管理员撤回消息
-     */
     handleDeleteMessage = async () => {
         const { id, linkmanId, loading, isAdmin } = this.props;
         if (loading) {
@@ -182,7 +174,7 @@ class Message extends Component<MessageProps, MessageState> {
                 );
             }
             default:
-                return <div className="unknown">不支持的消息类型</div>;
+                return <div className="unknown">Unsupported message type</div>;
         }
     }
 
@@ -241,7 +233,7 @@ class Message extends Component<MessageProps, MessageState> {
                                 <Tooltip
                                     placement={isSelf ? 'left' : 'right'}
                                     mouseEnterDelay={0.3}
-                                    overlay={<span>撤回消息</span>}
+                                    overlay={<span>Revoke message</span>}
                                 >
                                     <div>
                                         <IconButton

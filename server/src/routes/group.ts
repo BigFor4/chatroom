@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import stringHash from 'string-hash';
 
 import config from '../../config/server';
-import getRandomAvatar from '../../utils/getRandomAvatar';
+import getAvatarDefault from '../../utils/getAvatarDefault';
 import Group, { GroupDocument } from '../../database/mongoose/models/group';
 import Socket from '../../database/mongoose/models/socket';
 import Message from '../../database/mongoose/models/message';
@@ -49,7 +49,7 @@ export async function createGroup(ctx: Context<{ name: string }>) {
     try {
         newGroup = await Group.create({
             name,
-            avatar: getRandomAvatar(),
+            avatar: getAvatarDefault(),
             creator: ctx.socket.user,
             members: [ctx.socket.user],
         } as GroupDocument);

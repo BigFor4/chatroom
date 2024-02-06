@@ -4,7 +4,7 @@ import jwt from 'jwt-simple';
 import mongoose from 'mongoose';
 
 import config from '../../config/server';
-import getRandomAvatar from '../../utils/getRandomAvatar';
+import getAvatarDefault from '../../utils/getAvatarDefault';
 import { SALT_ROUNDS } from '../../utils/const';
 import User, { UserDocument } from '../../database/mongoose/models/user';
 import Group, { GroupDocument } from '../../database/mongoose/models/group';
@@ -93,7 +93,7 @@ export async function register(
             username,
             salt,
             password: hash,
-            avatar: getRandomAvatar(),
+            avatar: getAvatarDefault(),
             lastLoginIp: ctx.socket.ip,
         } as UserDocument);
     } catch (err) {

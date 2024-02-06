@@ -240,7 +240,7 @@ export async function getSTS(): Promise<STSResult> {
             config.aliyunOSS.roleArn,
             undefined,
             undefined,
-            'fiora-uploader',
+            'chatroom-uploader',
         );
         // @ts-ignore
         return {

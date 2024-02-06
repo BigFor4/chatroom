@@ -40,7 +40,6 @@ type Props = {
 function FileMessage({ file, percent }: Props) {
     const { fileUrl, filename, size } = JSON.parse(file);
     const url = fileUrl && getOSSFileUrl(fileUrl);
-
     return (
         <a
             className={styles.container}
@@ -48,14 +47,15 @@ function FileMessage({ file, percent }: Props) {
                 ? { href: url, download: filename, target: '_blank' }
                 : {})}
         >
+            <img src={url} style={{ height: 117 }} />
             <div className={styles.fileInfo}>
                 <span className={styles.fileInfoText}>{filename}</span>
                 <span className={styles.fileInfoText}>{filesize(size)}</span>
             </div>
             <p className={styles.button}>
                 {percent === undefined || percent >= 100
-                    ? '下载'
-                    : `上传中... ${percent.toFixed(0)}%`}
+                    ? ''
+                    : `Uploading... ${percent.toFixed(0)}%`}
             </p>
         </a>
     );

@@ -54,6 +54,9 @@ export function getOSSFileUrl(url = '', process = '') {
     if (url.includes('BackgroundImage')) {
         url = config.server + url
     }
+    if (url.includes('FileMessage')) {
+        url = config.server + url
+    }
     return `${url}`;
 }
 

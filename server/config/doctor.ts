@@ -8,7 +8,7 @@ import initRedis from '../database/redis/initRedis';
 import initMongoDB from '../database/mongoose/initMongoDB';
 
 export async function doctor() {
-    console.log(chalk.yellow('===== Run Fiora Doctor ====='));
+    console.log(chalk.yellow('===== Run chatroom Doctor ====='));
 
     const nodeVersion = cp.execSync('node --version').toString();
     console.log(

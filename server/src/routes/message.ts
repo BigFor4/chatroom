@@ -83,7 +83,7 @@ export async function sendMessage(ctx: Context<SendMessageData>) {
             user && user.createTime.getTime() > Date.now() - OneYear;
         assert(
             ctx.socket.isAdmin || !isNewUser,
-            'New users are muted! The main group prohibits idle chatting, discuss fiora and development technology more, and maintain the exchange environment voluntarily',
+            'New users are muted! The main group prohibits idle chatting, discuss chatroom and development technology more, and maintain the exchange environment voluntarily',
         );
     }
 

@@ -1,5 +1,5 @@
 import config from '../config/server';
-import getRandomAvatar from '../utils/getRandomAvatar';
+import getAvatarDefault from '../utils/getAvatarDefault';
 import logger from '../utils/logger';
 import initMongoDB from '../database/mongoose/initMongoDB';
 import Socket from '../database/mongoose/models/socket';
@@ -15,8 +15,8 @@ import { doctor } from '../config/doctor';
     const group = await Group.findOne({ isDefault: true });
     if (!group) {
         const defaultGroup = await Group.create({
-            name: 'fiora',
-            avatar: getRandomAvatar(),
+            name: 'chatroom',
+            avatar: getAvatarDefault(),
             isDefault: true,
         } as GroupDocument);
 

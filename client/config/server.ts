@@ -5,7 +5,7 @@ const { env } = process;
 export default {
     host: env.Host || ip.address(),
     port: env.Port ? parseInt(env.Port, 10) : 9200,
-    database: env.Database || 'mongodb://localhost:27017/fiora',
+    database: env.Database || 'mongodb://localhost:27017/chatroom',
     redis: {
         host: env.RedisHost || 'localhost',
         port: env.RedisPort ? parseInt(env.RedisPort, 10) : 6379,

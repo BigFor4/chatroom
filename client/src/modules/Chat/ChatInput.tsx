@@ -11,7 +11,6 @@ import fetch from '../../utils/fetch';
 import voice from '../../utils/voice';
 import readDiskFile, { ReadFileResult } from '../../utils/readDiskFile';
 import uploadFile from '../../utils/uploadFile';
-import getRandomHuaji from '../../utils/getRandomHuaji';
 import Style from './ChatInput.less';
 import useIsLogin from '../../hooks/useIsLogin';
 import useAction from '../../hooks/useAction';
@@ -300,11 +299,6 @@ function ChatInput() {
         sendImageMessage(image);
         return null;
     }
-    async function sendHuaji() {
-        const huaji = getRandomHuaji();
-        const id = addSelfMessage('image', huaji);
-        handleSendMessage(id, 'image', huaji);
-    }
     async function handleSendFile() {
         if (!connect) {
             Message.error('Message sending failed, you are currently offline');
@@ -331,10 +325,6 @@ function ChatInput() {
         switch (key) {
             case 'image': {
                 handleSendImage();
-                break;
-            }
-            case 'huaji': {
-                sendHuaji();
                 break;
             }
             case 'code': {
@@ -465,7 +455,6 @@ function ChatInput() {
         } else if (e.key === 'Enter' && !inputIME) {
             sendTextMessage();
         } else if (e.altKey && (e.key === 's' || e.key === 'ß')) {
-            sendHuaji();
             e.preventDefault();
         } else if (e.altKey && (e.key === 'd' || e.key === '∂')) {
             toggleExpressionDialog(true);

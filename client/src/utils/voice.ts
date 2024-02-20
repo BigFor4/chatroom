@@ -38,7 +38,7 @@ async function read(text: string, cuid: string) {
             // eslint-disable-next-line consistent-return
             return playEndPromise;
         } catch (err) {
-            console.warn('Language reading message failure', err.message);
+            console.warn('Language reading message failure', err);
         }
     }
 }

@@ -2,7 +2,7 @@ export interface ReadFileResult {
     filename: string;
     ext: string;
     type: string;
-    result: string | Blob | ArrayBuffer;
+    result: any;
     length: number;
 }
 

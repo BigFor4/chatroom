@@ -6,7 +6,6 @@ import { css } from 'linaria';
 import xss from '../../../utils/xss';
 import compressImage from '../../../utils/compressImage';
 import config from '../../../config/client';
-import { isMobile } from '../../../utils/ua';
 import fetch from '../../utils/fetch';
 import voice from '../../utils/voice';
 import readDiskFile, { ReadFileResult } from '../../utils/readDiskFile';
@@ -21,7 +20,6 @@ import Message from '../../components/Message';
 import { Menu, MenuItem } from '../../components/Menu';
 import { State } from '../../state/reducer';
 import { sendMessage } from '../../service';
-import Tooltip from '../../components/Tooltip';
 import useAero from '../../hooks/useAero';
 
 const expressionList = css`
